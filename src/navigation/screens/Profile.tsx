@@ -1,12 +1,12 @@
-import { Text } from '@react-navigation/elements';
-import { StaticScreenProps } from '@react-navigation/native';
-import { StyleSheet, View } from 'react-native';
+import { Text } from "@react-navigation/elements";
+import { StaticScreenProps } from "@react-navigation/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { StyleSheet, View } from "react-native";
+import { RootStackParamList } from "../types";
 
-type Props = StaticScreenProps<{
-  user: string;
-}>;
-
-export function Profile({ route }: Props) {
+export function Profile({
+  route,
+}: NativeStackScreenProps<RootStackParamList, "Profile">) {
   return (
     <View style={styles.container}>
       <Text>{route.params.user}'s Profile</Text>
@@ -17,8 +17,8 @@ export function Profile({ route }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     gap: 10,
   },
 });
