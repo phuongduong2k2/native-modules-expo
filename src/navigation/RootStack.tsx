@@ -1,19 +1,64 @@
-import React from "react";
+import { createNativeBottomTabNavigator } from "@react-navigation/bottom-tabs/unstable";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Home } from "./screens/Home";
-import { Profile } from "./screens/Profile";
-import { Settings } from "./screens/Settings";
-import { RootStackParamList } from "./types";
+import React from "react";
+
+import { Dashboard } from "@/screens/Dashboard";
+import FruitsList from "@/screens/FruitsList";
+import { Settings } from "@/screens/Settings";
+import { Updates } from "@/screens/Updates";
+import { RootStackParamList, TabParamList } from "./types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const RootStack = () => {
+const SearchStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="FruitsList" component={FruitsList} options={{}} />
     </Stack.Navigator>
+  );
+};
+
+const Tab = createNativeBottomTabNavigator<TabParamList>();
+
+const RootStack = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={Dashboard}
+        options={{
+          tabBarIcon: {
+            type: "sfSymbol",
+            name: "house",
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarIcon: {
+            type: "sfSymbol",
+            name: "gear",
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Updates"
+        component={Updates}
+        options={{
+          tabBarIcon: {
+            type: "sfSymbol",
+            name: "gear.badge",
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={SearchStack}
+        options={{ tabBarSystemItem: "search" }}
+      />
+    </Tab.Navigator>
   );
 };
 

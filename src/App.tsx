@@ -6,8 +6,10 @@ import {
 import { Asset } from "expo-asset";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
-import { useColorScheme } from "react-native";
+import { StatusBar, useColorScheme } from "react-native";
 import RootStack from "./navigation/RootStack";
+import * as Notifications from "expo-notifications";
+import useNotification from "./hooks/useNotification";
 
 Asset.loadAsync([
   require("./assets/newspaper.png"),
@@ -16,10 +18,21 @@ Asset.loadAsync([
 
 SplashScreen.preventAutoHideAsync();
 
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+    shouldShowBanner: true,
+    shouldShowList: true,
+  }),
+});
+
 export function App() {
   const colorScheme = useColorScheme();
 
   const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
+
+  const { channels, expoPushToken, notification } = useNotification();
 
   return (
     <NavigationContainer
@@ -28,6 +41,9 @@ export function App() {
         SplashScreen.hideAsync();
       }}
     >
+      <StatusBar
+        barStyle={colorScheme === "dark" ? "light-content" : "dark-content"}
+      />
       <RootStack />
     </NavigationContainer>
   );

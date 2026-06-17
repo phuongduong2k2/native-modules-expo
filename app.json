@@ -1,26 +1,31 @@
 {
   "expo": {
-    "name": "rn-code-base",
-    "slug": "rn-code-base",
+    "name": "Native Module Expo",
+    "slug": "native-module-expo",
     "version": "1.0.0",
     "orientation": "default",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/icon.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "scheme": "rncodebase",
+    "scheme": "nativemoduleexpo",
+    "notification": {
+      "icon": "./src/assets/notification_icon.png",
+      "color": "#4A90E2"
+    },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.rncodebase"
+      "bundleIdentifier": "com.nativemoduleexpo",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.rncodebase"
+      "icon": "./src/assets/icon.png",
+      "package": "com.nativemoduleexpo",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/favicon.png"
     },
     "plugins": [
       "expo-asset",
@@ -28,9 +33,35 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#ffffff",
-          "image": "./assets/splash-icon.png"
+          "image": "./src/assets/splash-icon.png"
+        }
+      ],
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "sounds": ["./src/assets/notification_sound.wav"]
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "f28264cb-9638-474c-8a38-27e54b722d3b"
+      }
+    },
+    "owner": "nolan-sotatek",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f28264cb-9638-474c-8a38-27e54b722d3b",
+      "checkAutomatically": "NEVER"
+    }
   }
 }

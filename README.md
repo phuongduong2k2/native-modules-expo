@@ -14,8 +14,8 @@ It includes the following:
 1. Clone and run project:
 
    ```sh
-   git clone git@github.com:Sotatek-PhuongDuong2/rn-code-base.git
-   cd rn-code-base
+   git clone git@github.com:Sotatek-PhuongDuong2/ota-sample.git
+   cd ota-sample
    npx expo run:android
    ```
 
