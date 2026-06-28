@@ -1,9 +1,9 @@
-import { View, Text, Platform, Button } from "react-native";
-import React, { useEffect, useState } from "react";
-import * as Notifications from "expo-notifications";
+import * as Clipboard from "expo-clipboard";
 import Constants from "expo-constants";
 import * as Device from "expo-device";
-import * as Clipboard from "expo-clipboard";
+import * as Notifications from "expo-notifications";
+import React, { useEffect, useState } from "react";
+import { Button, Platform, Text, View } from "react-native";
 
 type Props = {};
 
@@ -146,7 +146,7 @@ async function registerForPushNotificationsAsync() {
       token = `${e}`;
     }
   } else {
-    alert("Must use physical device for Push Notifications");
+    // alert("Must use physical device for Push Notifications");
   }
 
   return token;

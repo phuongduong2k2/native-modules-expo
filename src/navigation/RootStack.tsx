@@ -22,7 +22,7 @@ const Tab = createNativeBottomTabNavigator<TabParamList>();
 
 const RootStack = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{ headerShown: true }}>
       <Tab.Screen
         name="Home"
         component={Dashboard}

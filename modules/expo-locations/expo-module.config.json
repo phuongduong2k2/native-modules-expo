@@ -1,9 +1,0 @@
-{
-  "platforms": ["ios", "android"],
-  "ios": {
-    "modules": ["ExpoLocationsModule"]
-  },
-  "android": {
-    "modules": ["expo.modules.locations.ExpoLocationsModule"]
-  }
-}

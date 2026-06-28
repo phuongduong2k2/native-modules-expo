@@ -16,13 +16,13 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.nativemoduleexpo",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSLocationWhenInUseUsageDescription": "We need your location to show your current position on the map."
       }
     },
     "android": {
       "icon": "./src/assets/icon.png",
-      "package": "com.nativemoduleexpo",
-      "googleServicesFile": "./google-services.json"
+      "package": "com.nativemoduleexpo"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
@@ -46,13 +46,15 @@
       [
         "expo-notifications",
         {
-          "sounds": ["./src/assets/notification_sound.wav"]
+          "sounds": [
+            "./src/assets/notification_sound.wav"
+          ]
         }
       ]
     ],
     "extra": {
       "eas": {
-        "projectId": "f28264cb-9638-474c-8a38-27e54b722d3b"
+        "projectId": "55d2ede8-1c7c-4b9f-93c6-9024e01d0d11"
       }
     },
     "owner": "nolan-sotatek",
